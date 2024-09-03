@@ -16,19 +16,31 @@
   <body>
     <div id="root"></div>
     <script type="text/babel">
-      let action = "Save";
-      let victim = "Me";
-      let hero = "JSX";
-      let reward = 65000;
-      ReactDOM.render(
-        <ul>
-          <li>{action}</li>
-          <li>{victim}</li>
-          <li>{hero}</li>
-          <li>{reward}</li>
-        </ul>,
-        document.getElementById("root")
-      );
+      function Header() {
+        return (
+          <header>
+            <h1>Eve's Kitchen</h1>
+          </header>
+        );
+      }
+
+      function Main() {
+        return (
+          <section>
+            <p>We serve the most delicious food around</p>
+          </section>
+        );
+      }
+
+      function App(){
+        return (
+          <div>
+            <Header/>
+            <Main />
+            </div>
+        );
+      }
+      ReactDOM.render(<App />, document.getElementById("root"));
     </script>
   </body>
 </html>
