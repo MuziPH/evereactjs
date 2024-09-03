@@ -27,33 +27,42 @@
       function Main(props) {
         return (
           <section>
-          <ul>
-            {props.dishes.map((dishItem) => (
-            <li>{dishItem}</li>
-            ))}
+            <img
+              height={200}
+              src="./myrestaurant.jpg"
+              alt="Classic peaceful restirant setting"
+            />
+            <ul>
+              {props.dishes.map((dishItem) => (
+                <li key={dishItem.id}>{dishItem.title}</li>
+              ))}
             </ul>
           </section>
         );
       }
 
-      function Footer(props){
+      function Footer(props) {
         return (
           <footer>
             <p>Copyright Year {props.year}</p>
-            </footer>
+          </footer>
         );
       }
 
-      const dishes = ["Skopo","Manqhina","Umleqwa"]
+      const dishes = ["Skopo", "Manqhina", "Umleqwa"];
+      const dishesKey = dishes.map((dishItem, i) => ({
+        id: i,
+        title: dishItem,
+      }));
 
-      function App(){
+      function App() {
         return (
-          <div>
-            <Header name="Muzi"/>
-            <Main adjective="amazing" dishes={dishes}/>
-            <Footer year={2022}/>
-            <Footer year={new Date().getFullYear()}/>
-            </div>
+          <React.Fragment>
+            <Header name="Muzi" />
+            <Main adjective="amazing" dishes={dishesKey} />
+            <Footer year={2022} />
+            <Footer year={new Date().getFullYear()} />
+          </React.Fragment>
         );
       }
       ReactDOM.render(<App />, document.getElementById("root"));
