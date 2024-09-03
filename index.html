@@ -27,7 +27,11 @@
       function Main(props) {
         return (
           <section>
-            <p>We serve the most {props.adjective} food around</p>
+          <ul>
+            {props.dishes.map((dishItem) => (
+            <li>{dishItem}</li>
+            ))}
+            </ul>
           </section>
         );
       }
@@ -40,11 +44,13 @@
         );
       }
 
+      const dishes = ["Skopo","Manqhina","Umleqwa"]
+
       function App(){
         return (
           <div>
             <Header name="Muzi"/>
-            <Main adjective="amazing"/>
+            <Main adjective="amazing" dishes={dishes}/>
             <Footer year={2022}/>
             <Footer year={new Date().getFullYear()}/>
             </div>
